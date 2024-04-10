@@ -62,7 +62,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Exemple Cookies</h1>
+        <h1>Gestionarea Cookie-urilor</h1>
         
         <div class="button-group">
             <button onclick="alertCookie()">Afișează cookie-urile</button>
