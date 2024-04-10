@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple Cookies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 400px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button.alert {
+            background-color: #dc3545;
+        }
+
+        button.alert:hover {
+            background-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exemple Cookies</h1>
+        
+        <div class="button-group">
+            <button onclick="alertCookie()">Afișează cookie-urile</button>
+            <button onclick="setInitialCookies()">Setează cookie-uri inițiale</button>
+            <button onclick="alert(showCookies())">Arată cookie-uri</button>
+            <button onclick="alert(clearCookies())">Șterge cookie-uri</button>
+            <button onclick="resetCookie()">Resetare Cookie</button>
+            <button class="alert" onclick="alert(checkACookieExists())">Verifică existența cookie-ului </button>
+            <button class="alert" onclick="alert(checkCookieHasASpecificValue())">Verifică valoarea cookie-ului</button>
+        </div>
+    </div>
+
+    <script>
+        // Setarea cookie-urilor inițiale
+        document.cookie = "session=test GDPR; path=/; SameSite=Lax; Secure";
+        document.cookie = "favorite_task=collect Data; path=/; SameSite=Lax; Secure";
+
+        // Funcția pentru afișarea unei alerte cu toate cookie-urile
+        function alertCookie() {
+            alert(document.cookie); 
+        }
+
+        // Funcția pentru setarea cookie-urilor inițiale
+        function setInitialCookies() {
+            document.cookie = "name=oeschger; SameSite=None; Secure";
+            document.cookie = "favorite_food=tripe; SameSite=None; Secure";
+            document.cookie = "test1=Hello; SameSite=None; Secure";
+            document.cookie = "test2=World; SameSite=None; Secure";
+            document.cookie = "reader=1; SameSite=None; Secure";
+            document.cookie = "resetCookie=true; expires=Fri, 01 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
+            alert('Cookie-urile au fost setate!'); 
+        }
+
+        // Funcția pentru afișarea cookie-urilor disponibile
+        function showCookies() {
+            return 'Cookie-uri: ' + document.cookie;
+        }
+
+        // Funcția pentru ștergerea cookie-urilor
+        function clearCookies() {
+            return 'Cookie-urile au fost șterse!';
+        }
+
+        // Funcția pentru resetarea cookie-ului
+        function resetCookie() {
+            document.cookie = "resetCookie=; expires=Thu, 1 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
+            alert('Cookie-ul a fost resetat!');
+        }
+
+        // Funcția pentru verificarea existenței cookie-ului "reader"
+        function checkACookieExists() {
+            return document.cookie.split("; ").some((item) => item.trim().startsWith("reader=")) ?
+                'Cookie-ul "reader" există' : 'Cookie-ul "reader" nu există';
+        }
+
+        // Funcția pentru verificarea valorii cookie-ului "reader"
+        function checkCookieHasASpecificValue() {
+            return document.cookie.split("; ").some((item) => item.includes("reader=1")) ?
+                'Cookie-ul "reader" are valoarea "1"' : 'Cookie-ul "reader" nu are valoarea "1"';
+        }
+    </script>
+</body>
+</html>
