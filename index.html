@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bună ziua, lume!</title>
-</head>
-<body>
-    <h1>Bună ziua, lume! </h1>
+    <script>
+        function setCookies() {
+            document.cookie = "session=test GDPR";
+            document.cookie = "favorite_task=collect Data";
+        }
 
+        function alertCookie() {
+            alert(document.cookie);
+        }
+    </script>
+</head>
+<body onload="setCookies()">
+    <h1>Bună ziua, lume!  </h1>
+    <p>Bine ai venit la lab</p>
+    <button onclick="alertCookie()">Afișează cookies</button>
 </body>
 </html>
