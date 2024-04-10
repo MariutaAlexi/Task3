@@ -6,7 +6,19 @@
     <title>Bună ziua, lume!</title>
 </head>
 <body>
-    <h1>Bună ziua, lume! </h1>
+    <h1>Bună ziua, lume!</h1>
+    <p>Bine ai venit la lab</p>
+    <button onclick="alertCookie()">Arată cookie-uri</button>
 
+    <script>
+        // Definiți funcția care va fi apelată când butonul este apăsat
+        function alertCookie() {
+            // Setează cookie-uri
+            document.cookie = "session=test GDPR";
+            document.cookie = "favorite_task=collect Data";
+            // Afișează cookie-urile într-un mesaj de alertă
+            alert(document.cookie);
+        }
+    </script>
 </body>
 </html>
